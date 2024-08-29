@@ -8,6 +8,9 @@ app.use(express.json())
 app.get('/', (req, res) => {
     return res.status(200).send({message: 'hello,  world!'})
 })
+app.get('/2tds2', (req, res) => {
+    return res.status(500).send({message: 'hello,  world!'})
+})
 app.listen(serverPort, () => {
     console.log(`🎉 server started on http://localhost:${serverPort}`)
 })
