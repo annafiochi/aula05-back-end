@@ -41,21 +41,21 @@ personagensRoutes.post("/", (req, res) => {
   return res.status(201).send(novoPersonagens);
 });
 
-personagensRoutes.delete("/:id", (req,res) => {
-  const {id}= req.params;
+personagensRoutes.delete("/:id", (req, res) => {
+  const { id } = req.params;
 
-  const personagens= personagens.find((person) => person.id == id );
+  const personagem = personagens.find((person) => person.id == id);
 
-  if (!personagens){
-      return res.status(404).send({
-          message: "personagem não encontrada!",
-      });
-}
-personagens = personagens.filter((person) => person.id != id)
-    return res.status(200).send({
-        message: "personagem deletado!",
-        personagens,
+  if (!personagem) {
+    return res.status(404).send({
+      message: "personagem não encontrada!",
     });
-  })
-  export default personagensRoutes;
-    
+  }
+
+  personagens = personagens.filter((person) => person.id != id);
+  return res.status(200).send({
+    message: "personagem deletado!",
+    personagens,
+  });
+});
+export default personagensRoutes;
