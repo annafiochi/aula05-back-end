@@ -1,6 +1,7 @@
 import { Router } from "express"
 
 const emocoesRoutes=Router()
+
 let emocoes = [
     {
         id:1, 
@@ -51,6 +52,8 @@ emocoesRoutes.get("/:id", (req,res) => {
         emocao,
     });
 });
+
+
  emocoesRoutes.put ("/:id", (req, res) => {
     const {id}= req.params;
 
