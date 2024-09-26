@@ -51,6 +51,26 @@ emocoesRoutes.get("/:id", (req,res) => {
         emocao,
     });
 });
+ emocoesRoutes.put ("/:id", (req, res) => {
+    const {id}= req.params;
 
+    const emocao= emocoes.find((emotion) => emotion.id == id );
+
+    if (!emocao){
+        return res.status(404).send({
+            message: "emoção não encontrada!",
+        });
+    }
+
+    const {nome, cor} = req.body;
+    emocao.nome = nome;
+    emocao.cor = cor;
+
+    return res.status(200).send({
+        message: "emoção atualizada!",
+        emocao,
+    });
+    
+ });
 export default emocoesRoutes 
     
